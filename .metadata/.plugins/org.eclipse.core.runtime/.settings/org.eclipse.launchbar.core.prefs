@@ -1,0 +1,9 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Robot_Config_2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3Encoders Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:killme Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Chassis Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Turrett Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:dcmotor Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:encoders Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Encoderssfinal Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Turretvbpsmc Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:kill me uart Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:uartdma3wheel Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:uartencoders Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART_DMA_3Wheel_IMU Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:encodersssssss Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3Encoders\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3Encoders\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Robot_Config_2\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Robot_Config_2\ Debug/activeLaunchTarget=null\:---

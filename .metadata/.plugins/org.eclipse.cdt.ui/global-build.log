@@ -1,0 +1,33 @@
+08:17:01 **** Incremental Build of configuration Debug for project Robot_Config_2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:757:121: warning: format '%d' expects argument of type 'int', but argument 19 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  757 |                                 "Received Integers: %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %d %d\r\n",
+      |                                                                                                                        ~^
+      |                                                                                                                         |
+      |                                                                                                                         int
+      |                                                                                                                        %ld
+  758 |                                 lx, ly, rx, ry, tri, cir, cro, squ, ll1, rr1, ll2, rr2, up,
+  759 |                                 down, right, left, ebike_running, drib_speed);
+      |                                                                   ~~~~~~~~~~                                             
+      |                                                                   |
+      |                                                                   uint32_t {aka long unsigned int}
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:176:12: warning: 'servoDir' defined but not used [-Wunused-variable]
+  176 | static int servoDir = 50;
+      |            ^~~~~~~~
+../Core/Src/main.c:113:12: warning: 'prev_squ' defined but not used [-Wunused-variable]
+  113 | static int prev_squ = 0;
+      |            ^~~~~~~~
+arm-none-eabi-gcc -o "Robot_Config_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Admin\STM32CubeIDE\workspace_1.17.0\Robot_Config_2\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robot_Config_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Robot_Config_2.elf
+ 
+arm-none-eabi-size  Robot_Config_2.elf 
+arm-none-eabi-objdump -h -S Robot_Config_2.elf  > "Robot_Config_2.list"
+   text	   data	    bss	    dec	    hex	filename
+  60108	    504	   3144	  63756	   f90c	Robot_Config_2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robot_Config_2.list
+ 

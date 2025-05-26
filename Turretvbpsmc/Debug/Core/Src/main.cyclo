@@ -1,0 +1,14 @@
+../Core/Src/main.c:80:5:constrain	3
+../Core/Src/main.c:126:6:HAL_UART_RxCpltCallback	1
+../Core/Src/main.c:129:5:compute_motor_position	5
+../Core/Src/main.c:175:6:control_turret	6
+../Core/Src/main.c:209:5:main	17
+../Core/Src/main.c:300:6:SystemClock_Config	3
+../Core/Src/main.c:348:13:MX_TIM1_Init	7
+../Core/Src/main.c:423:13:MX_TIM2_Init	3
+../Core/Src/main.c:472:13:MX_UART4_Init	2
+../Core/Src/main.c:505:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:536:13:MX_DMA_Init	1
+../Core/Src/main.c:554:13:MX_GPIO_Init	1
+../Core/Src/main.c:597:5:_write	1
+../Core/Src/main.c:607:6:Error_Handler	1
