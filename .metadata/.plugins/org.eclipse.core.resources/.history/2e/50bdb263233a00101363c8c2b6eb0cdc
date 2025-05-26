@@ -564,6 +564,7 @@ float constrain(float val, float min_val, float max_val) {
 }
 
 void rectToPolar() {
+	wz = rx;
 	if (abs(lx) < deadzone)
 		lx = 0;
 	// else lx = (lx > 0) ? lx - deadzone : lx + deadzone;
@@ -760,7 +761,7 @@ int main(void) {
 //				(int32_t) rxbuff[15] - 256 : (int32_t) rxbuff[15];
 //
 		printf(
-				"Received Integers: %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %d %d\r\n",
+				"Received Integers: %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %d %ld\r\n",
 				lx, ly, rx, ry, tri, cir, cro, squ, ll1, rr1, ll2, rr2, up,
 				down, right, left, ebike_running, drib_speed);
 //

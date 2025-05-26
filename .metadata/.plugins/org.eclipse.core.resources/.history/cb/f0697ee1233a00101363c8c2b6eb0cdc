@@ -564,6 +564,7 @@ float constrain(float val, float min_val, float max_val) {
 }
 
 void rectToPolar() {
+	wz = rx;
 	if (abs(lx) < deadzone)
 		lx = 0;
 	// else lx = (lx > 0) ? lx - deadzone : lx + deadzone;

@@ -80,14 +80,7 @@ TIM_HandleTypeDef htim14;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-/*
- *             wf
- *            /  \
- *        E1 /    \E2
- *          /      \
- *         /________\
- *      wrl    E3	 wrr
- */
+double wfl, wfr, wrl, wrr, wz;
 const double r = 75;
 double target_wf = 0, target_wrl = 0, target_wrr = 0;
 double current_wf = 0, current_wrl = 0, current_wrr = 0;
@@ -462,8 +455,8 @@ void computeRobotMotion() {
         theta = lasttheta + dtheta;
 
         // Calculate forward and strafe components
-        forward = (L_mm + R_mm) / 2;//X is forward
-        strafe = B_mm - Bx * dtheta;//Y is left
+        forward = (L_mm + R_mm) / 2;
+        strafe = B_mm - Bx * dtheta;
 
         // Calculate changes in forward and strafe movement
         dforward = del(forward, lastforward);
@@ -564,6 +557,7 @@ float constrain(float val, float min_val, float max_val) {
 }
 
 void rectToPolar() {
+	wz = rx;
 	if (abs(lx) < deadzone)
 		lx = 0;
 	// else lx = (lx > 0) ? lx - deadzone : lx + deadzone;
