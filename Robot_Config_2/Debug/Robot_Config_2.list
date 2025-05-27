@@ -27,25 +27,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  000101f8  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000122c1  00000000  00000000  00010228  2**0
+ 12 .debug_info   0001224b  00000000  00000000  00010228  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000025fd  00000000  00000000  000224e9  2**0
+ 13 .debug_abbrev 000025fc  00000000  00000000  00022473  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00001180  00000000  00000000  00024ae8  2**3
+ 14 .debug_aranges 00001178  00000000  00000000  00024a70  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 00000ddd  00000000  00000000  00025c68  2**0
+ 15 .debug_rnglists 00000dd7  00000000  00000000  00025be8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00023b59  00000000  00000000  00026a45  2**0
+ 16 .debug_macro  00023b59  00000000  00000000  000269bf  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000158b2  00000000  00000000  0004a59e  2**0
+ 17 .debug_line   00015849  00000000  00000000  0004a518  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000d766a  00000000  00000000  0005fe50  2**0
+ 18 .debug_str    000d7647  00000000  00000000  0005fd61  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  001374ba  2**0
+ 19 .comment      00000043  00000000  00000000  001373a8  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000063bc  00000000  00000000  00137500  2**2
+ 20 .debug_frame  00006394  00000000  00000000  001373ec  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000006a  00000000  00000000  0013d8bc  2**0
+ 21 .debug_line_str 0000006a  00000000  00000000  0013d780  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1859,7 +1859,7 @@ void process_i2c_data(void) {
  80013a0:	200006c4 	.word	0x200006c4
  80013a4:	200006c0 	.word	0x200006c0
 	} else {
-		lx = 0, ly = 0, rx = 0, ry = 0, cro = 0, squ = 0, tri = 0, cir = 0, up = 0, down = 0, left = 0, right = 0, ll1 = 0, rr1 = 0, ll2 = 0, rr2 = 0;
+		lx = 0, ly = 0, rx = 0, ry = 0, cro = 0, squ = 0, tri = 0, cir = 0, up =
  80013a8:	4b18      	ldr	r3, [pc, #96]	@ (800140c <process_i2c_data+0x29c>)
  80013aa:	2200      	movs	r2, #0
  80013ac:	601a      	str	r2, [r3, #0]
@@ -1887,6 +1887,7 @@ void process_i2c_data(void) {
  80013d8:	4b14      	ldr	r3, [pc, #80]	@ (800142c <process_i2c_data+0x2bc>)
  80013da:	2200      	movs	r2, #0
  80013dc:	601a      	str	r2, [r3, #0]
+				0, down = 0, left = 0, right = 0, ll1 = 0, rr1 = 0, ll2 = 0, rr2 =
  80013de:	4b14      	ldr	r3, [pc, #80]	@ (8001430 <process_i2c_data+0x2c0>)
  80013e0:	2200      	movs	r2, #0
  80013e2:	601a      	str	r2, [r3, #0]
@@ -1908,6 +1909,7 @@ void process_i2c_data(void) {
  8001402:	4b11      	ldr	r3, [pc, #68]	@ (8001448 <process_i2c_data+0x2d8>)
  8001404:	2200      	movs	r2, #0
  8001406:	601a      	str	r2, [r3, #0]
+				0;
 	}
 }
  8001408:	bd80      	pop	{r7, pc}
@@ -2776,18 +2778,15 @@ int main(void) {
  8001b98:	2100      	movs	r1, #0
  8001b9a:	4839      	ldr	r0, [pc, #228]	@ (8001c80 <main+0x184>)
  8001b9c:	f007 fcbe 	bl	800951c <memset>
-	while (1) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
-		/* ps5 controller */
+
+		/* -------------------- ps5 controller -------------------- */
 		process_i2c_data();
  8001ba0:	f7ff fae6 	bl	8001170 <process_i2c_data>
-//		right = (rxbuff[14] & 0x80) ?
-//				(int32_t) rxbuff[14] - 256 : (int32_t) rxbuff[14];
-//		left = (rxbuff[15] & 0x80) ?
-//				(int32_t) rxbuff[15] - 256 : (int32_t) rxbuff[15];
-//
+
+		// printing global values
 		printf(
  8001ba4:	4b37      	ldr	r3, [pc, #220]	@ (8001c84 <main+0x188>)
  8001ba6:	681b      	ldr	r3, [r3, #0]
@@ -2864,11 +2863,11 @@ int main(void) {
  8001c34:	6af9      	ldr	r1, [r7, #44]	@ 0x2c
  8001c36:	4825      	ldr	r0, [pc, #148]	@ (8001ccc <main+0x1d0>)
  8001c38:	f007 fb08 	bl	800924c <iprintf>
-//				down, right, left, target_wf, target_wrl, target_wrr, ebike_running);
+				"Received Integers: %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %d %ld\r\n",
+				lx, ly, rx, ry, tri, cir, cro, squ, ll1, rr1, ll2, rr2, up,
+				down, right, left, ebike_running, drib_speed);
 
-//			HAL_I2C_Slave_Receive_IT(&hi2c2, rxbuff, 16);
-
-		/* 3 wheel */
+		/* -------------------- 3 wheel -------------------- */
 		MovementState current_state = STOP;
  8001c3c:	2300      	movs	r3, #0
  8001c3e:	f887 303f 	strb.w	r3, [r7, #63]	@ 0x3f
@@ -2880,6 +2879,7 @@ int main(void) {
 		applyDeceleration();
  8001c4a:	f7ff fe49 	bl	80018e0 <applyDeceleration>
 
+		// reset encoders logic
 		if (current_state == CLOCKWISE || current_state == ANTICLOCKWISE) {
  8001c4e:	f897 303f 	ldrb.w	r3, [r7, #63]	@ 0x3f
  8001c52:	2b05      	cmp	r3, #5
@@ -2922,7 +2922,9 @@ int main(void) {
  8001cd0:	f7ff fbd2 	bl	8001478 <startEncoders>
 		}
 
-		/* 3 encoders */
+		/* -------------------- 3 encoders -------------------- */
+
+		// get raw encoders data
 		uint16_t raw_counter1 = __HAL_TIM_GET_COUNTER(&htim1);
  8001cd4:	4b75      	ldr	r3, [pc, #468]	@ (8001eac <main+0x3b0>)
  8001cd6:	681b      	ldr	r3, [r3, #0]
@@ -2963,11 +2965,11 @@ int main(void) {
 		signed_counter3 =
  8001cfe:	4b70      	ldr	r3, [pc, #448]	@ (8001ec0 <main+0x3c4>)
  8001d00:	801a      	strh	r2, [r3, #0]
-		////				printf("Yaw: %.2f\r\n", yaw);
-		//		printf("Encoder position: %d %d %d X: %.2f Y: %.2f\r\n",
 		//				signed_counter1, signed_counter2, signed_counter3, x, y);
-		/* Stepper */
-		//		stepper_running1 = 1;
+		/* -------------------- Stepper -------------------- */
+
+		//		stepper_running1 = 1; // for testing
+		// set stepper direction
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3,
  8001d02:	4b70      	ldr	r3, [pc, #448]	@ (8001ec4 <main+0x3c8>)
  8001d04:	681b      	ldr	r3, [r3, #0]
@@ -2995,6 +2997,7 @@ int main(void) {
  8001d2e:	f002 f951 	bl	8003fd4 <HAL_GPIO_WritePin>
 				!direction1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
 
+		// set direction & set-point
 		if (ll1 == 1 && !prev_ll1) {  // LL1 button pressed
  8001d32:	4b66      	ldr	r3, [pc, #408]	@ (8001ecc <main+0x3d0>)
  8001d34:	681b      	ldr	r3, [r3, #0]
@@ -3008,6 +3011,8 @@ int main(void) {
  8001d42:	4b60      	ldr	r3, [pc, #384]	@ (8001ec4 <main+0x3c8>)
  8001d44:	2201      	movs	r2, #1
  8001d46:	601a      	str	r2, [r3, #0]
+
+			// set motor running state
 			stepper_running = 1;
  8001d48:	4b62      	ldr	r3, [pc, #392]	@ (8001ed4 <main+0x3d8>)
  8001d4a:	2201      	movs	r2, #1
@@ -3016,6 +3021,8 @@ int main(void) {
  8001d4e:	4b62      	ldr	r3, [pc, #392]	@ (8001ed8 <main+0x3dc>)
  8001d50:	2201      	movs	r2, #1
  8001d52:	601a      	str	r2, [r3, #0]
+
+			// assigns target steps
 			target_steps = STEPS;
  8001d54:	4b61      	ldr	r3, [pc, #388]	@ (8001edc <main+0x3e0>)
  8001d56:	22f0      	movs	r2, #240	@ 0xf0
@@ -3024,12 +3031,16 @@ int main(void) {
  8001d5a:	4b61      	ldr	r3, [pc, #388]	@ (8001ee0 <main+0x3e4>)
  8001d5c:	22f0      	movs	r2, #240	@ 0xf0
  8001d5e:	601a      	str	r2, [r3, #0]
+
+			// enable motor (optional)
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET);
  8001d60:	2200      	movs	r2, #0
  8001d62:	2180      	movs	r1, #128	@ 0x80
  8001d64:	4858      	ldr	r0, [pc, #352]	@ (8001ec8 <main+0x3cc>)
  8001d66:	f002 f935 	bl	8003fd4 <HAL_GPIO_WritePin>
 		}
+
+		// set direction & set-point
 		if (rr1 == 1 && !prev_rr1) {  // RR1 button pressed
  8001d6a:	4b5e      	ldr	r3, [pc, #376]	@ (8001ee4 <main+0x3e8>)
  8001d6c:	681b      	ldr	r3, [r3, #0]
@@ -3043,6 +3054,8 @@ int main(void) {
  8001d7a:	4b52      	ldr	r3, [pc, #328]	@ (8001ec4 <main+0x3c8>)
  8001d7c:	2200      	movs	r2, #0
  8001d7e:	601a      	str	r2, [r3, #0]
+
+			// set motor running state
 			stepper_running = 1;
  8001d80:	4b54      	ldr	r3, [pc, #336]	@ (8001ed4 <main+0x3d8>)
  8001d82:	2201      	movs	r2, #1
@@ -3051,6 +3064,8 @@ int main(void) {
  8001d86:	4b54      	ldr	r3, [pc, #336]	@ (8001ed8 <main+0x3dc>)
  8001d88:	2201      	movs	r2, #1
  8001d8a:	601a      	str	r2, [r3, #0]
+
+			// assigns target steps
 			target_steps = STEPS;
  8001d8c:	4b53      	ldr	r3, [pc, #332]	@ (8001edc <main+0x3e0>)
  8001d8e:	22f0      	movs	r2, #240	@ 0xf0
@@ -3059,12 +3074,16 @@ int main(void) {
  8001d92:	4b53      	ldr	r3, [pc, #332]	@ (8001ee0 <main+0x3e4>)
  8001d94:	22f0      	movs	r2, #240	@ 0xf0
  8001d96:	601a      	str	r2, [r3, #0]
+
+			// enable motor (optional)
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET);
  8001d98:	2200      	movs	r2, #0
  8001d9a:	2180      	movs	r1, #128	@ 0x80
  8001d9c:	484a      	ldr	r0, [pc, #296]	@ (8001ec8 <main+0x3cc>)
  8001d9e:	f002 f919 	bl	8003fd4 <HAL_GPIO_WritePin>
 		}
+
+		// stop the motor
 		if (cir == 1 && !prev_cir) {
  8001da2:	4b52      	ldr	r3, [pc, #328]	@ (8001eec <main+0x3f0>)
  8001da4:	681b      	ldr	r3, [r3, #0]
@@ -3074,6 +3093,8 @@ int main(void) {
  8001dac:	681b      	ldr	r3, [r3, #0]
  8001dae:	2b00      	cmp	r3, #0
  8001db0:	d110      	bne.n	8001dd4 <main+0x2d8>
+
+			// set motor stop state
 			stepper_running = 0;
  8001db2:	4b48      	ldr	r3, [pc, #288]	@ (8001ed4 <main+0x3d8>)
  8001db4:	2200      	movs	r2, #0
@@ -3082,6 +3103,8 @@ int main(void) {
  8001db8:	4b47      	ldr	r3, [pc, #284]	@ (8001ed8 <main+0x3dc>)
  8001dba:	2200      	movs	r2, #0
  8001dbc:	601a      	str	r2, [r3, #0]
+
+			// reset target steps
 			current_steps = 0;
  8001dbe:	4b4d      	ldr	r3, [pc, #308]	@ (8001ef4 <main+0x3f8>)
  8001dc0:	2200      	movs	r2, #0
@@ -3090,12 +3113,16 @@ int main(void) {
  8001dc4:	4b4c      	ldr	r3, [pc, #304]	@ (8001ef8 <main+0x3fc>)
  8001dc6:	2200      	movs	r2, #0
  8001dc8:	601a      	str	r2, [r3, #0]
+
+			// disable motor (optional)
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET);
  8001dca:	2201      	movs	r2, #1
  8001dcc:	2180      	movs	r1, #128	@ 0x80
  8001dce:	483e      	ldr	r0, [pc, #248]	@ (8001ec8 <main+0x3cc>)
  8001dd0:	f002 f900 	bl	8003fd4 <HAL_GPIO_WritePin>
 		}
+
+		// maintains previous states
 		prev_ll1 = ll1;
  8001dd4:	4b3d      	ldr	r3, [pc, #244]	@ (8001ecc <main+0x3d0>)
  8001dd6:	681b      	ldr	r3, [r3, #0]
@@ -3111,6 +3138,9 @@ int main(void) {
  8001de6:	681b      	ldr	r3, [r3, #0]
  8001de8:	4a41      	ldr	r2, [pc, #260]	@ (8001ef0 <main+0x3f4>)
  8001dea:	6013      	str	r3, [r2, #0]
+
+		// step pulse
+		// stepper 1
 		if (stepper_running && (HAL_GetTick() - last_step_time) >= step_delay
  8001dec:	4b39      	ldr	r3, [pc, #228]	@ (8001ed4 <main+0x3d8>)
  8001dee:	681b      	ldr	r3, [r3, #0]
@@ -3171,6 +3201,8 @@ int main(void) {
  8001e50:	601a      	str	r2, [r3, #0]
 			}
 		}
+
+		// stepper 2
 		if (stepper_running1 && (HAL_GetTick() - last_step_time1) >= step_delay1
  8001e52:	4b21      	ldr	r3, [pc, #132]	@ (8001ed8 <main+0x3dc>)
  8001e54:	681b      	ldr	r3, [r3, #0]
@@ -3259,6 +3291,7 @@ int main(void) {
  8001f28:	601a      	str	r2, [r3, #0]
 			}
 		}
+
 		// Stop when target steps are reached
 		if (current_steps >= target_steps) {
  8001f2a:	4b6b      	ldr	r3, [pc, #428]	@ (80020d8 <main+0x5dc>)
@@ -3281,6 +3314,7 @@ int main(void) {
  8001f46:	4867      	ldr	r0, [pc, #412]	@ (80020e4 <main+0x5e8>)
  8001f48:	f002 f844 	bl	8003fd4 <HAL_GPIO_WritePin>
 		}
+
 		if (current_steps1 >= target_steps1) {
  8001f4c:	4b66      	ldr	r3, [pc, #408]	@ (80020e8 <main+0x5ec>)
  8001f4e:	681a      	ldr	r2, [r3, #0]
@@ -3303,7 +3337,9 @@ int main(void) {
  8001f6a:	f002 f833 	bl	8003fd4 <HAL_GPIO_WritePin>
 		}
 
-		/* Dribbling */
+		/* -------------------- Dribbling -------------------- */
+
+		// set motor running state
 		if (tri == 1 && !prev_tri) {
  8001f6e:	4b61      	ldr	r3, [pc, #388]	@ (80020f4 <main+0x5f8>)
  8001f70:	681b      	ldr	r3, [r3, #0]
@@ -3318,6 +3354,8 @@ int main(void) {
  8001f80:	2201      	movs	r2, #1
  8001f82:	601a      	str	r2, [r3, #0]
 		}
+
+		// set motor stop state
 		if (cro == 1 && !prev_cro) {  // cro button pressed
  8001f84:	4b5e      	ldr	r3, [pc, #376]	@ (8002100 <main+0x604>)
  8001f86:	681b      	ldr	r3, [r3, #0]
@@ -3336,6 +3374,8 @@ int main(void) {
  8001f9c:	2200      	movs	r2, #0
  8001f9e:	601a      	str	r2, [r3, #0]
 		}
+
+		// decreases motor speed
 		if (ll2 == 1 && !prev_ll2) {
  8001fa0:	4b5a      	ldr	r3, [pc, #360]	@ (800210c <main+0x610>)
  8001fa2:	681b      	ldr	r3, [r3, #0]
@@ -3352,6 +3392,8 @@ int main(void) {
  8001fb6:	4a57      	ldr	r2, [pc, #348]	@ (8002114 <main+0x618>)
  8001fb8:	6013      	str	r3, [r2, #0]
 		}
+
+		// increases motor speed
 		if (rr2 == 1 && !prev_rr2) {
  8001fba:	4b57      	ldr	r3, [pc, #348]	@ (8002118 <main+0x61c>)
  8001fbc:	681b      	ldr	r3, [r3, #0]
@@ -3368,6 +3410,8 @@ int main(void) {
  8001fd0:	4a50      	ldr	r2, [pc, #320]	@ (8002114 <main+0x618>)
  8001fd2:	6013      	str	r3, [r2, #0]
 		}
+
+		// set to default motor speed
 		if (down == 1 && !prev_down) {
  8001fd4:	4b52      	ldr	r3, [pc, #328]	@ (8002120 <main+0x624>)
  8001fd6:	681b      	ldr	r3, [r3, #0]
@@ -3381,10 +3425,11 @@ int main(void) {
  8001fe4:	4b4b      	ldr	r3, [pc, #300]	@ (8002114 <main+0x618>)
  8001fe6:	2246      	movs	r2, #70	@ 0x46
  8001fe8:	601a      	str	r2, [r3, #0]
-		}
 		if (drib_speed < 0) {
 			drib_speed = 0;
 		}
+
+		// if speed above 100, it set to 100
 		if (drib_speed > 100) {
  8001fea:	4b4a      	ldr	r3, [pc, #296]	@ (8002114 <main+0x618>)
  8001fec:	681b      	ldr	r3, [r3, #0]
@@ -3395,6 +3440,8 @@ int main(void) {
  8001ff4:	2264      	movs	r2, #100	@ 0x64
  8001ff6:	601a      	str	r2, [r3, #0]
 		}
+
+		// maintains previous state
 		prev_ll2 = ll2;
  8001ff8:	4b44      	ldr	r3, [pc, #272]	@ (800210c <main+0x610>)
  8001ffa:	681b      	ldr	r3, [r3, #0]
@@ -3420,6 +3467,8 @@ int main(void) {
  800201a:	681b      	ldr	r3, [r3, #0]
  800201c:	4a41      	ldr	r2, [pc, #260]	@ (8002124 <main+0x628>)
  800201e:	6013      	str	r3, [r2, #0]
+
+		// set PWM for e-bike
 		if (ebike_running) {
  8002020:	4b36      	ldr	r3, [pc, #216]	@ (80020fc <main+0x600>)
  8002022:	681b      	ldr	r3, [r3, #0]
@@ -3430,8 +3479,6 @@ int main(void) {
  800202a:	2110      	movs	r1, #16
  800202c:	483e      	ldr	r0, [pc, #248]	@ (8002128 <main+0x62c>)
  800202e:	f001 ffd1 	bl	8003fd4 <HAL_GPIO_WritePin>
-//			TIM1->CCR3 = (drib_speed * 999) / 100;  //rpm 2000 test
-//			HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 			__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,
  8002032:	4b38      	ldr	r3, [pc, #224]	@ (8002114 <main+0x618>)
  8002034:	681b      	ldr	r3, [r3, #0]
@@ -3447,16 +3494,16 @@ int main(void) {
 					((drib_speed * 999) / 100));
 		} else {
 			//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, 1);
-//			TIM1->CCR3 = (0 * 999) / 100;
-//			HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-			__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, ((0 * 999) / 100));
+			__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
  800204e:	4b37      	ldr	r3, [pc, #220]	@ (800212c <main+0x630>)
  8002050:	681b      	ldr	r3, [r3, #0]
  8002052:	2200      	movs	r2, #0
  8002054:	63da      	str	r2, [r3, #60]	@ 0x3c
 		}
 
-		// pneumatics
+		/* -------------------- pneumatics -------------------- */
+
+		// trigger pneumatic
 		if (squ == 1) {
  8002056:	4b37      	ldr	r3, [pc, #220]	@ (8002134 <main+0x638>)
  8002058:	681b      	ldr	r3, [r3, #0]
@@ -3474,6 +3521,8 @@ int main(void) {
  800206a:	601a      	str	r2, [r3, #0]
 		}
 		//		prev_squ = squ;
+
+		// set pneumatic high
 		if (pneumatic_open) {
  800206c:	4b32      	ldr	r3, [pc, #200]	@ (8002138 <main+0x63c>)
  800206e:	681b      	ldr	r3, [r3, #0]
@@ -3491,17 +3540,15 @@ int main(void) {
  8002082:	2104      	movs	r1, #4
  8002084:	4812      	ldr	r0, [pc, #72]	@ (80020d0 <main+0x5d4>)
  8002086:	f001 ffa5 	bl	8003fd4 <HAL_GPIO_WritePin>
-//		} else if (right == 1) {
-//
-//			htim3.Instance->CCR3 = 125; // duty cycle is 2 ms (180 degrees)
-//
-//		}
-		if (left == 1) {
+		}
+
+		/* -------------------- servo motor -------------------- */
+
+		if (right == 1) { //net open
  800208a:	4b2c      	ldr	r3, [pc, #176]	@ (800213c <main+0x640>)
  800208c:	681b      	ldr	r3, [r3, #0]
  800208e:	2b01      	cmp	r3, #1
  8002090:	d10c      	bne.n	80020ac <main+0x5b0>
-//			Set_Servo_Angle(&htim5, TIM_CHANNEL_1, 180);
 			htim1.Instance->CCR1 = 75; // 90 degree
  8002092:	4b26      	ldr	r3, [pc, #152]	@ (800212c <main+0x630>)
  8002094:	681b      	ldr	r3, [r3, #0]
@@ -3518,12 +3565,11 @@ int main(void) {
  80020a6:	224b      	movs	r2, #75	@ 0x4b
  80020a8:	63da      	str	r2, [r3, #60]	@ 0x3c
  80020aa:	e579      	b.n	8001ba0 <main+0xa4>
-		} else if (right == 1) {
+		} else if (left == 1) { //net close
  80020ac:	4b24      	ldr	r3, [pc, #144]	@ (8002140 <main+0x644>)
  80020ae:	681b      	ldr	r3, [r3, #0]
  80020b0:	2b01      	cmp	r3, #1
  80020b2:	f47f ad75 	bne.w	8001ba0 <main+0xa4>
-//			Set_Servo_Angle(&htim5, TIM_CHANNEL_1, 90); // duty cycle is 2 ms (180 degrees)
 			htim1.Instance->CCR1 = 125; // 180 degree
  80020b6:	4b1d      	ldr	r3, [pc, #116]	@ (800212c <main+0x630>)
  80020b8:	681b      	ldr	r3, [r3, #0]
@@ -3568,8 +3614,8 @@ int main(void) {
  8002130:	51eb851f 	.word	0x51eb851f
  8002134:	200006ac 	.word	0x200006ac
  8002138:	200006d8 	.word	0x200006d8
- 800213c:	200006c0 	.word	0x200006c0
- 8002140:	200006c4 	.word	0x200006c4
+ 800213c:	200006c4 	.word	0x200006c4
+ 8002140:	200006c0 	.word	0x200006c0
 
 08002144 <SystemClock_Config>:
 
